@@ -19,8 +19,4 @@ function display_footer() {
     print_file('footer.html');
 }
 
-function logged_in($user) {
-    /* todo */
-}
-
 ?>
