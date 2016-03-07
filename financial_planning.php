@@ -15,4 +15,8 @@ function display_footer() {
     print_file('footer.html');
 }
 
+function submitted() {
+    return ($_SERVER['REQUEST_METHOD'] == 'POST');
+}
+
 ?>
