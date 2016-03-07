@@ -1,0 +1,73 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src = "dropdown.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+
+<form class="form-horizontal" id="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend id="add_account_title">Add Account</legend>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Account Type</label>
+  <div class="col-md-4">
+    <select id="select_account_type" name="select_account_type" class="form-control">
+      <option value="" disabled selected>Please select...</option>
+      <option value="1">Checking</option>
+      <option value="2">Savings</option>
+      <option value="3">Investment/Brokerage</option>
+      <option value="4">Credit Card</option>
+      <option value="5">Other Loan</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="accountnum"></label>
+  <div class="col-md-4">
+  <input id="accountnum" name="accountnum" type="text" placeholder="Account Number" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="accountnum_verify"></label>
+  <div class="col-md-4">
+  <input id="accountnum_verify" name="accountnum_verify" type="text" placeholder="Verify Account Number" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Banking User Name</label>
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="User Name" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">Banking Password</label>
+  <div class="col-md-4">
+    <input id="passwordinput" name="passwordinput" type="password" placeholder="Password" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Add Account</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

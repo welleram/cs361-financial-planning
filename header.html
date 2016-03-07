@@ -1,0 +1,97 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src = "dropdown.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+<div class="container">
+  <nav class="navbar navbar-inverse navbar-fixed-top" id="header">
+    <div class="navbar-header">
+    	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">Finances</a>
+	</div>
+
+	<div class="collapse navbar-collapse js-navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li class="dropdown mega-dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview <span class="caret"></span></a>
+				<ul class="dropdown-menu mega-dropdown-menu">
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Financial Overview</li>
+              <li class="divider"></li>
+						</ul>
+					</li>
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Income</li>
+							       <li><a href="#">What is my income?</a></li>
+                     <li><a href="#">How am I earning?</a></li>
+                     <li><a href="#">Something else</a></li>
+                     <li><a href="#">Something else</a></li>
+							<li class="dropdown-header"</li>
+						</ul>
+					</li>
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Spending</li>
+							      <li><a href="#">How much am I spending?</a></li>
+							      <li><a href="#">Where am I spending?</a></li>
+							      <li><a href="#">Something else</a></li>
+							      <li><a href="#">Something else</a></li>
+						</ul>
+					</li>
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Advice</li>
+                  <li><a href="#">How do I save more?</a></li>
+							    <li><a href="#">How do I limit spending?</a></li>
+							    <li><a href="#">Something else</a></li>
+							    <li><a href="#">Something else</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+            <li class="dropdown mega-dropdown">
+    			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Accounts <span class="caret"></span></a>
+				<ul class="dropdown-menu mega-dropdown-menu">
+          <li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header">Accounts</li>
+              <li class="divider"></li>
+						</ul>
+					</li>
+					<li class="col-sm-3">
+    				<ul>
+							<li class="dropdown-header"><a href="add_account.html">Add An Account</a></li>
+						</ul>
+					</li>
+					<li class="col-sm-3">
+						<ul>
+							<li class="dropdown-header"><a href="view_edit_account.html">View/Edit Accounts</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+            <li><a href="#">Tools</a></li>
+		</ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Log Out</a></li>
+      </ul>
+	</div><!-- /.nav-collapse -->
+  </nav>
+</div>
