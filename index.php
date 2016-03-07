@@ -9,8 +9,8 @@ require 'financial_planning.php';
 /* display html page header */
 display_header();
 
-/* placeholder main page */
-display_placeholder();
+/* display placeholder main page */
+print_file('placeholder.html');
 
 /* display html page footer */
 display_footer();
