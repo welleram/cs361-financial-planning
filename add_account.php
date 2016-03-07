@@ -15,11 +15,11 @@ if (!submitted()) {
     print_file('add_account.html');
 } else {
     /* store data in an array */
-    $array = $_POST;
+    $account = $_POST;
     /* TODO: insert into database */
     /* temporarily display contents of array */
     echo '<pre>';
-    print_r($array);
+    print_r($account);
     echo '</pre>';
     echo '<a href="" class="btn btn-primary">Go back</a>';
 }
