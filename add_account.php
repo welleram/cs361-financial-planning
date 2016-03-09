@@ -17,15 +17,23 @@ if (!submitted()) {
 } else {
     /* store data in an array */
     $account = $_POST;
+    $session = $_SESSION;
     /* TODO: insert into database */
     /* temporarily display contents of array */
     
-    //add_account($accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
-    add_account($_POST[accountname], $_POST[select_account_type], $_POST[accountnum], $_POST[accountbalance], $POST[accountusername], $_POST[passwordinput], $con);
+    //temporary variables until have real session variables
+    $_SESSION[userName] = "user1"; 
+    $_SESSION[userP_Id] = 333;
+    
+    echo "session is $_SESSION[userP_Id]<br>";
+    //function add_account($userP_Id , $userName, $accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
+    add_account($_SESSION[userP_Id], $_SESSION[userName],  $_POST[accountname], $_POST[select_account_type], $_POST[accountnum], $_POST[accountbalance], $POST[accountusername], $_POST[passwordinput], $con);
 
     
     echo '<pre>';
     print_r($account);
+    //print_r($session);
+    
     echo '</pre>';
     echo '<a href="" class="btn btn-primary">Go back</a>';
 }
