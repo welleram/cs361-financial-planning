@@ -1,0 +1,39 @@
+<form class="form-horizontal" id="form-horizontal" action="add_limits.php" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend id="add_account_title">Add Limits</legend>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Limit Type</label>
+  <div class="col-md-4">
+    <select id="select_limit_type" name="select_limit_type" class="form-control">
+      <option value="" disabled selected>Please select...</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">monthly</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="accountnum"></label>
+  <div class="col-md-4">
+  <input id="limitamount" name="limitamount" type="text" placeholder="Limit Amount" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Add Limit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

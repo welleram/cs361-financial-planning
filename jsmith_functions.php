@@ -1,0 +1,235 @@
+<?php
+
+/*
+    $mysqli = new mysqli("oniddb.cws.oregonstate.edu", "smithjoe-db", "", "smithjoe-db");
+    if ($mysqli->connect_errno) 
+    {
+        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+ * 
+ */
+
+$con = mysqli_connect("127.0.0.1", "root", "", "financialplanning");
+
+function create_table_users($con)
+{
+
+
+    $sql="CREATE TABLE Users(P_Id int NOT NULL AUTO_INCREMENT , userName CHAR(30) UNIQUE, password CHAR(60),  PRIMARY KEY (P_Id) )";
+
+    if (mysqli_query($con,$sql))
+    {
+        echo "table Users created successfully. <br>";
+    }
+
+    else 
+    {
+        echo "Error creating table Users: " . mysqli_error($con) . "<br>";    
+    }
+
+
+}
+
+function drop_table_users($con)
+{
+    $sql="DROP TABLE Users";
+        if (mysqli_query($con,$sql))
+        {
+            echo "table Users dropped successfully. <br. ";
+        }
+        else 
+        {
+            echo "Error dropping table table: " . mysqli_error($con) . "<br>";    
+        }    
+    
+}
+
+function add_user($userName, $password, $con)
+{
+    
+    $sql = "INSERT INTO Users(userName, password) VALUES ('$userName', '$password')";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function delete_user($userName, $con)
+{
+    
+    $sql = "DELETE FROM Users WHERE userName='$userName';";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+
+function create_table_accounts($con)
+{
+
+
+    $sql="CREATE TABLE Accounts(P_Id int NOT NULL AUTO_INCREMENT , accountName CHAR(30), accountType CHAR(30), accountNumber INT, accountBalance INT, accountUsername CHAR(30), accountPassword CHAR(60),  PRIMARY KEY (P_Id) )";
+
+    if (mysqli_query($con,$sql))
+    {
+        echo "table Accounts created successfully. <br>";
+    }
+
+    else 
+    {
+        echo "Error creating table Accounts: " . mysqli_error($con) . "<br>";    
+    }
+
+
+}
+
+
+
+
+function drop_table_accounts($con)
+{
+    $sql="DROP TABLE Accounts";
+        if (mysqli_query($con,$sql))
+        {
+            echo "table Accounts dropped successfully. <br. ";
+        }
+        else 
+        {
+            echo "Error dropping table Accounts: " . mysqli_error($con) . "<br>";    
+        }    
+    
+}
+
+function add_account($accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
+{
+    
+    $sql = "INSERT INTO Accounts(accountName, accountType, accountNumber, accountBalance, accountUsername, accountPassword) VALUES ('$accountName', '$accountType', '$accountNumber', '$accountBalance', '$accountUsername', '$accountPassword')";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function delete_account($P_Id, $con)
+{
+    
+    $sql = "DELETE FROM Accounts WHERE P_Id='$P_Id';";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function create_table_incomes( $con)
+{
+
+
+    $sql="CREATE TABLE Incomes(P_Id int NOT NULL AUTO_INCREMENT , userP_Id INT, dateDay INT, dateMonth INT, dateYear INT, recurrence CHAR(30), amount INT, PRIMARY KEY (P_Id))";
+
+    if (mysqli_query($con,$sql))
+    {
+        echo "table Incomes created successfully. <br>";
+    }
+
+    else 
+    {
+        echo "Error creating table Incomes: " . mysqli_error($con) . "<br>";    
+    }
+
+
+}
+
+function drop_table_incomes($con)
+{
+    $sql="DROP TABLE Incomes";
+        if (mysqli_query($con,$sql))
+        {
+            echo "table Incomes dropped successfully. <br. ";
+        }
+        else 
+        {
+            echo "Error dropping table Incomes: " . mysqli_error($con) . "<br>";    
+        }    
+    
+}
+
+function add_income($userP_Id, $dateDay, $dateMonth, $dateYear, $recurrence, $amount, $con)
+{
+    
+    $sql = "INSERT INTO Incomes(userP_Id, dateDay, dateMonth, dateYear, recurrence, amount) VALUES ('$userP_Id', $dateDay', '$dateMonth', '$dateYear', '$recurrence', '$amount')";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function delete_income($P_Id, $con)
+{
+    
+    $sql = "DELETE FROM Incomes WHERE P_Id='$P_Id';";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function create_table_expenses($con)
+{
+
+
+    $sql="CREATE TABLE Expenses(P_Id int NOT NULL AUTO_INCREMENT , dateDay INT, dateMonth INT, dateYear INT, recurrence CHAR(30), amount INT, PRIMARY KEY (P_Id))";
+
+    if (mysqli_query($con,$sql))
+    {
+        echo "table Expenses created successfully. <br>";
+    }
+
+    else 
+    {
+        echo "Error creating table Expenses: " . mysqli_error($con) . "<br>";    
+    }
+
+
+}
+
+function drop_table_expenses($con)
+{
+    $sql="DROP TABLE Expenses";
+    if (mysqli_query($con,$sql))
+    {
+        echo "table Expenses dropped successfully. <br> ";
+    }
+    else 
+    {
+        echo "Error dropping table Expenses: " . mysqli_error($con) . "<br>";    
+    }    
+    
+}
+
+function add_expense($userP_Id, $dateDay, $dateMonth, $dateYear, $recurrence, $amount, $con)
+{
+    
+    $sql = "INSERT INTO Expenses(userP_Id, dateDay, dateMonth, dateYear, recurrence, amount) VALUES ('$userP_Id', $dateDay', '$dateMonth', '$dateYear', '$recurrence', '$amount')";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function delete_expense($P_Id, $con)
+{
+    
+    $sql = "DELETE FROM Expenses WHERE P_Id='$P_Id';";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+
+    
+    
+    
+    
+
