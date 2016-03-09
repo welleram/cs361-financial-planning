@@ -36,7 +36,7 @@ display_header();
 /* begin accounts table */
 echo "<div id=\"inner\">
   <table class=\"demo\">
-    <caption>View/Edit Accounts</caption>
+    <legend>View/Edit Accounts</legend>
       <thead>
         <tr>
           <th>Bank Name</th>
