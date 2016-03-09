@@ -44,6 +44,27 @@ function drop_table_users($con)
     
 }
 
+function add_user($userName, $password, $con)
+{
+    
+    $sql = "INSERT INTO Users(userName, password) VALUES ('$userName', '$password')";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function delete_user($userName, $con)
+{
+    
+    $sql = "DELETE FROM Users WHERE userName='$userName';";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+
 function create_table_accounts($con)
 {
 
@@ -64,6 +85,8 @@ function create_table_accounts($con)
 }
 
 
+
+
 function drop_table_accounts($con)
 {
     $sql="DROP TABLE Accounts";
@@ -78,11 +101,31 @@ function drop_table_accounts($con)
     
 }
 
-function create_table_incomes($con)
+function add_account($accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
+{
+    
+    $sql = "INSERT INTO Accounts(accountName, accountType, accountNumber, accountBalance, accountUsername, accountPassword) VALUES ('$accountName', '$accountType', '$accountNumber', '$accountBalance', '$accountUsername', '$accountPassword')";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function delete_account($P_Id, $con)
+{
+    
+    $sql = "DELETE FROM Accounts WHERE P_Id='$P_Id';";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function create_table_incomes( $con)
 {
 
 
-    $sql="CREATE TABLE Incomes(P_Id int NOT NULL AUTO_INCREMENT , dateDay INT, dateMonth INT, dateYear INT, recurrence CHAR(30), amount INT, PRIMARY KEY (P_Id))";
+    $sql="CREATE TABLE Incomes(P_Id int NOT NULL AUTO_INCREMENT , userP_Id INT, dateDay INT, dateMonth INT, dateYear INT, recurrence CHAR(30), amount INT, PRIMARY KEY (P_Id))";
 
     if (mysqli_query($con,$sql))
     {
@@ -108,6 +151,26 @@ function drop_table_incomes($con)
         {
             echo "Error dropping table Incomes: " . mysqli_error($con) . "<br>";    
         }    
+    
+}
+
+function add_income($userP_Id, $dateDay, $dateMonth, $dateYear, $recurrence, $amount, $con)
+{
+    
+    $sql = "INSERT INTO Incomes(userP_Id, dateDay, dateMonth, dateYear, recurrence, amount) VALUES ('$userP_Id', $dateDay', '$dateMonth', '$dateYear', '$recurrence', '$amount')";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
+
+function delete_income($P_Id, $con)
+{
+    
+    $sql = "DELETE FROM Incomes WHERE P_Id='$P_Id';";
+    
+    mysqli_query($con,$sql);
+    
     
 }
 
@@ -144,7 +207,25 @@ function drop_table_expenses($con)
     
 }
 
+function add_expense($userP_Id, $dateDay, $dateMonth, $dateYear, $recurrence, $amount, $con)
+{
+    
+    $sql = "INSERT INTO Expenses(userP_Id, dateDay, dateMonth, dateYear, recurrence, amount) VALUES ('$userP_Id', $dateDay', '$dateMonth', '$dateYear', '$recurrence', '$amount')";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
 
+function delete_expense($P_Id, $con)
+{
+    
+    $sql = "DELETE FROM Expenses WHERE P_Id='$P_Id';";
+    
+    mysqli_query($con,$sql);
+    
+    
+}
 
 
     
