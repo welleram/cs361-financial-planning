@@ -1,5 +1,5 @@
 <?php
-/* submit_permission.php
+/* link_account.php
  * Link an Account */
 /* shared functions */
 require 'financial_planning.php';
