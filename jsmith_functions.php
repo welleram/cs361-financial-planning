@@ -15,7 +15,7 @@ function create_table_users($con)
 {
 
 
-    $sql="CREATE TABLE Users(P_Id int NOT NULL AUTO_INCREMENT , userName CHAR(30) UNIQUE, password CHAR(60),  PRIMARY KEY (P_Id) )";
+    $sql="CREATE TABLE Users(P_Id int NOT NULL AUTO_INCREMENT , userName CHAR(30) UNIQUE, password CHAR(60), dailySpendingLimit INT, weeklySpendingLimit INT, monthlySpendingLimit INT,  PRIMARY KEY (P_Id) )";
 
     if (mysqli_query($con,$sql))
     {
@@ -69,7 +69,7 @@ function create_table_accounts($con)
 {
 
 
-    $sql="CREATE TABLE Accounts(P_Id int NOT NULL AUTO_INCREMENT , accountName CHAR(30), accountType CHAR(30), accountNumber INT, accountBalance INT, accountUsername CHAR(30), accountPassword CHAR(60),  PRIMARY KEY (P_Id) )";
+    $sql="CREATE TABLE Accounts(P_Id int NOT NULL AUTO_INCREMENT , userP_Id INT, userName CHAR(30), accountName CHAR(30), accountType CHAR(30), accountNumber INT, accountBalance INT, accountUsername CHAR(30), accountPassword CHAR(60),  PRIMARY KEY (P_Id) )";
 
     if (mysqli_query($con,$sql))
     {
@@ -101,12 +101,19 @@ function drop_table_accounts($con)
     
 }
 
-function add_account($accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
+function add_account($userP_Id , $userName, $accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
 {
     
-    $sql = "INSERT INTO Accounts(accountName, accountType, accountNumber, accountBalance, accountUsername, accountPassword) VALUES ('$accountName', '$accountType', '$accountNumber', '$accountBalance', '$accountUsername', '$accountPassword')";
+    $sql = "INSERT INTO Accounts(userP_Id, userName, accountName, accountType, accountNumber, accountBalance, accountUsername, accountPassword) VALUES ('$userP_Id', '$userName', '$accountName', '$accountType', '$accountNumber', '$accountBalance', '$accountUsername', '$accountPassword')";
     
-    mysqli_query($con,$sql);
+    if (mysqli_query($con,$sql))
+    {
+        // echo "added account successfully. <br. ";
+    }
+    else
+    {
+        //echo "Error adding account: " . mysqli_error($con) . "<br>";
+    }
     
     
 }
