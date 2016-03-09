@@ -9,7 +9,7 @@
  * 
  */
 
-$con = mysqli_connect("127.0.0.1", "root", "dgavm", "financialplanning");
+$con = mysqli_connect("127.0.0.1", "root", "", "financialplanning");
 
 function create_table_users($con)
 {
