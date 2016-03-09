@@ -7,6 +7,10 @@ require 'financial_planning.php';
 display_header();
 /* display and process link account form */
 if (!submitted()) {
+    if(isset($_SESSION['valid_user'])) {
+    } else {
+        die(" You cannot link a bank account without being logged in. If you don't have an account, please register and then come back! ");
+    }
     /* display link account form */
     print_file('link_account.html');
 } else {
