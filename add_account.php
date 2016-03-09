@@ -5,6 +5,7 @@
 
 /* shared functions */
 require 'financial_planning.php';
+require 'jsmith_functions.php';
 
 /* display html page header */
 display_header();
@@ -18,6 +19,11 @@ if (!submitted()) {
     $account = $_POST;
     /* TODO: insert into database */
     /* temporarily display contents of array */
+    
+    //add_account($accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
+    add_account($_POST[accountname], $_POST[select_account_type], $_POST[accountnum], $_POST[accountbalance], $POST[accountusername], $_POST[passwordinput], $con);
+
+    
     echo '<pre>';
     print_r($account);
     echo '</pre>';
