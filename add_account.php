@@ -21,13 +21,20 @@ if (!submitted()) {
     /* TODO: insert into database */
     /* temporarily display contents of array */
     
+
     //temporary variables until have real session variables
     $_SESSION[userName] = "user1"; 
     $_SESSION[userP_Id] = 333;
     
-    echo "session is $_SESSION[userP_Id]<br>";
+    //git conflict the lines under were commented out    
+    //echo "session is $_SESSION[userP_Id]<br>";
     //function add_account($userP_Id , $userName, $accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
-    add_account($_SESSION[userP_Id], $_SESSION[userName],  $_POST[accountname], $_POST[select_account_type], $_POST[accountnum], $_POST[accountbalance], $POST[accountusername], $_POST[passwordinput], $con);
+    //add_account($_SESSION[userP_Id], $_SESSION[userName],  $_POST[accountname], $_POST[select_account_type], $_POST[accountnum], $_POST[accountbalance], $POST[accountusername], $_POST[passwordinput], $con);
+
+    ////and replaced with these:
+    //add_account($accountName, $accountType, $accountNumber, $accountBalance, $accountUsername, $accountPassword, $con)
+    add_account($_POST[accountname], $_POST[select_account_type], $_POST[accountnum], $_POST[accountbalance], $POST[accountusername], $_POST[passwordinput], $con);
+//>>>>>>> baf06c3acb123d22b89554267b47ae8f92aa56ae
 
     
     echo '<pre>';
