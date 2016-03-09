@@ -1,0 +1,63 @@
+<?php
+if(isset($_SESSION['valid_user'])) { 
+} else {
+	die(" You cannot link a bank account without being logged in. If you don't have an account, please register and then come back! ");
+}
+?>
+
+<form class="form-horizontal" id="form-horizontal" action="link_account.php" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend id="link_account_title">Link Bank Account</legend>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Your Bank</label>
+  <div class="col-md-4">
+    <select id="bank" name="bank" class="form-control">
+      <option value="" disabled selected>Please select...</option>
+      <option value="1">Bank X</option>
+      <option value="2">Bank Y</option>
+      <option value="3">Bank Z</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="accountnum"></label>
+  <div class="col-md-4">
+  <input id="accountnum" name="accountnum" type="text" placeholder="Account Number" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="username">Bank User Name</label>
+  <div class="col-md-4">
+  <input id="username" name="username" type="text" placeholder="User Name" class="form-control input-md">
+
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="passwordinput">Bank Password</label>
+  <div class="col-md-4">
+    <input id="passwordinput" name="passwordinput" type="password" placeholder="Password" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Add Account</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
