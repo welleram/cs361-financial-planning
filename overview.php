@@ -8,6 +8,13 @@ if(!isset($_SESSION['username'])){
 }
 $username = $_SESSION['username'];
 ?>
+<?php
+/* shared functions */
+require 'financial_planning.php';
+/* display html page header */
+display_header();
+
+?>
 <!DOCTYPE html>
 <!--
 
@@ -17,9 +24,9 @@ $username = $_SESSION['username'];
 	<title>Overview of your finances</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="../favicon.ico"> 
-	<link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+				    <script src = "dropdown.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 	<script src="js/jquery.js"></script>
 	<script>
 		var username = "<?php echo $username; ?>";
@@ -37,17 +44,13 @@ $username = $_SESSION['username'];
 	</style>
 </head>
 <body>
-<h1> NAVIGATION BAR WILL GO HERE</h1>
-                                <p>
-									Logout-will be part of navigation bar- temporary placed here
-									<a href="logout.php"><font size=4>Logout</font></a>
-								</p>
+       
 
     <!-- Full Width Image Header with Logo -->
     <!-- Image backgrounds are set within the full-width-pics.css file. -->
 
     <header class="image-bg-fluid-height">
-        <img class="bg" src="3.png"  height="300" style ="position: relative;" alt="">
+        <img class="bg" src="3.png"  height="250" style ="position: relative;" alt="">
 
 		</header>
 		
@@ -57,4 +60,7 @@ $username = $_SESSION['username'];
 	<br>
 
 </body>
+<?php
+display_footer();;
+?>
 </html>
