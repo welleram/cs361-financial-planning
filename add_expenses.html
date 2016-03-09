@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="form-horizontal" action="add_account.php" method="post">
+<form class="form-horizontal" id="form-horizontal" action="add_expenses.php" method="post">
 <fieldset>
 
 <!-- Form Name -->
@@ -6,15 +6,114 @@
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="selectbasic">Account Type</label>
+  <label class="col-md-4 control-label" for="selectbasic">Expense Type</label>
   <div class="col-md-4">
-    <select id="select_account_type" name="select_account_type" class="form-control">
+    <select id="select_expense_type" name="select_expense_type" class="form-control">
       <option value="" disabled selected>Please select...</option>
-      <option value="1">Checking</option>
-      <option value="2">Savings</option>
-      <option value="3">Investment/Brokerage</option>
-      <option value="4">Credit Card</option>
-      <option value="5">Other Loan</option>
+      <option value="1">Personal Expenses</option>
+      <option value="2">Car Expenses</option>
+      <option value="3">House Expenses</option>
+      <option value="4">Financial Expenses</option>
+      <option value="5">Other</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Day</label>
+  <div class="col-md-4">
+    <select id="day" name="day" class="form-control">
+      <option value="" disabled selected>Please select...</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20</option>
+      <option value="21">21</option>
+      <option value="22">22</option>
+      <option value="23">23</option>
+      <option value="24">24</option>
+      <option value="25">25</option>
+      <option value="26">26</option>
+      <option value="27">27</option>
+      <option value="28">28</option>
+      <option value="29">29</option>
+      <option value="30">30</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Month</label>
+  <div class="col-md-4">
+    <select id="month" name="month" class="form-control">
+      <option value="" disabled selected>Please select...</option>
+      <option value="1">January</option>
+      <option value="2">February</option>
+      <option value="3">March</option>
+      <option value="4">April</option>
+      <option value="5">May</option>
+      <option value="6">June</option>
+      <option value="7">July</option>
+      <option value="8">August</option>
+      <option value="9">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
+  </div>
+</div>
+
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Year</label>
+  <div class="col-md-4">
+    <select id="year" name="year" class="form-control">
+      <option value="" disabled selected>Please select...</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+      <option value="2010">2010</option>
+      <option value="2009">2009</option>
+      <option value="2008">2008</option>
+      <option value="2007">2007</option>
+      <option value="2006">2006</option>
+      <option value="2005">2005</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Recurrence</label>
+  <div class="col-md-4">
+    <select id="recurrence" name="recurrence" class="form-control">
+      <option value="" disabled selected>Please select...</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+      <option value="norecurrence">No Recurrence</option>
     </select>
   </div>
 </div>
@@ -23,37 +122,11 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="accountnum"></label>
   <div class="col-md-4">
-  <input id="accountnum" name="accountnum" type="text" placeholder="Account Number" class="form-control input-md" required="">
+  <input id="amount" name="amount" type="text" placeholder="Amount" class="form-control input-md" required="">
 
   </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="accountnum_verify"></label>
-  <div class="col-md-4">
-  <input id="accountnum_verify" name="accountnum_verify" type="text" placeholder="Verify Account Number" class="form-control input-md" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Banking User Name</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="User Name" class="form-control input-md">
-
-  </div>
-</div>
-
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="passwordinput">Banking Password</label>
-  <div class="col-md-4">
-    <input id="passwordinput" name="passwordinput" type="password" placeholder="Password" class="form-control input-md" required="">
-
-  </div>
-</div>
 
 <!-- Button -->
 <div class="form-group">
