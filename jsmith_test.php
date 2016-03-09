@@ -21,6 +21,13 @@ and open the template in the editor.
         create_table_incomes($con);
         create_table_expenses($con);
         
+        $userName = "joe";
+        $password = "pass";
+        
+        //add_user($userName, $password, $con);
+        delete_user($userName, $con);
+                
+        
         ?>
     </body>
 </html>
