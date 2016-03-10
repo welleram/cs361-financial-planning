@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 
+<?php
+/* shared functions */
+require 'financial_planning.php';
+/* display html page header */
+display_header_login();
 
+?>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="shortcut icon" href="../favicon.ico">
-	<link rel="stylesheet" type="text/css" href="css/demo.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
-	<style>
-		.bg {
-  		width: 100%;
-  		z-index: 0;
-		}
-		.imageContainer {
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+		        <link rel="shortcut icon" href="../favicon.ico">
+
+				    <script src = "dropdown.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+		<style>
+.bg
+{
+  width: 100%;
+  z-index: 0;
+}
+.imageContainer {
        width:200px;
        height:200px;
        background-image: 3.pgn;
- 	 }
-	 </style>
+ }
+</style>
 	<title>Registration Form</title>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -68,84 +76,77 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" id="header">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="index.php">Finances</a>
-		</div>
-	</nav><br><br><br>
-
     <!-- Full Width Image Header with Logo -->
     <!-- Image backgrounds are set within the full-width-pics.css file. -->
     <header class="image-bg-fluid-height">
-        <img class="bg" src="img/3.png"  height="300" alt="">
+        <img class="bg" src="3.png"  height="280" alt="">
 
     </header>
-	<br>
-	<br>
 
-  <div class="container">
-            <section>
-                <div id="container_demo" >
-                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-                    <div id="wrapper">
+			<form action="verify.php" class="form-horizontal">
+				<legend id="add_account_title"> <h1> Registration Form </h1></legend>
 
-			<form action="verify.php">
-				 <h1> Registration Form </h1>
-                                <p>
-                                    <label for="usernamesignup" class="uname" data-icon="u">Username: <span> (must be at least 6 characters long) </span></label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="Username" />
-                                </p>
-								<p>
-                                    <label for="firstname" class="firstname" data-icon="u">First name: </label>
-                                    <input id="firstname" name="firstname" required="required" type="text" placeholder="first name" />
-								</p>
-								<p>
-								  <label for="lastname" class="lastname" data-icon="u">Last name: </label>
-                                    <input id="lastname" name="lastname" required="required" type="text" placeholder="last name" />
-                                </p>
-                                <p>
-                                    <label for="email" class="youmail" data-icon="e" >Email: (must be a valid email)</label>
-                                    <input id="email" name="email" required="required" type="email" placeholder="email"/>
-                                </p>
-								<p>
-                                    <label for="password" class="youpasswd" data-icon="p">Password: <span> (must be at least 8 characters long)</span></label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="password"/>
-                                </p>
-                                <p>
-                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password:(must match the password above)</label>
-                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="password"/>
-                                </p>
+								<div class="form-group">
+									<label for="usernamesignup" class="col-md-4 control-label" >Username:  (must be at least 6 characters long) </label>
+                                     <div class="col-md-4">
+										<input id="username" name="username" required="required" type="text" placeholder="Username" class="form-control input-md" />
+									</div>
+								</div>
 
 
-								<div>
-									<input type="submit" value="REGISTER" id="register_button" />
+							<div class="form-group">
+                                    <label for="firstname" class="col-md-4 control-label" data-icon="u">First name: </label>
+									 <div class="col-md-4">
+                                    <input id="firstname" name="firstname" required="required" type="text" placeholder="first name" class="form-control input-md"/>
+							</div>
+							</div>
+
+
+
+								<div class="form-group">
+								  <label for="lastname" class="col-md-4 control-label" data-icon="u">Last name: </label>
+								   <div class="col-md-4">
+                                    <input id="lastname" name="lastname" required="required" type="text" placeholder="last name" class="form-control input-md"/>
+                                </div>
+								</div>
+                               <div class="form-group">
+                                    <label for="email" class="col-md-4 control-label" data-icon="e" >Email: (must be a valid email)</label>
+									 <div class="col-md-4">
+                                    <input id="email" name="email" required="required" type="email" placeholder="email" class="form-control input-md"/>
+                                </div>
+								</div>
+								<div class="form-group">
+                                    <label for="password" class="col-md-4 control-label" data-icon="p">Password: <span> (must be at least 8 characters long)</span></label>
+									 <div class="col-md-4">
+                                    <input id="password" name="password" required="required" type="password" placeholder="password" class="form-control input-md"/>
+                                </div>
+								</div>
+                              <div class="form-group">
+                                    <label for="passwordsignup_confirm" class="col-md-4 control-label" data-icon="p">Please confirm your password:(must match the password above)</label>
+                                     <div class="col-md-4">
+									<input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="password"class="form-control input-md"/>
+                                </div>
+								</div>
+
+								<div class="form-group">
+								 <label class="col-md-4 control-label" for="register_button"></label>
+								<div class="col-md-4">
+									<input type="submit" value="REGISTER" id="register_button" class="btn btn-primary"/>
+								</div>
 								</div>
 								<br>
 								<font color="red"><div class="err" id="alert"></div></font>
-								<br>
-                                <p>
+
 									Already a member ?
 									<a href="login.php" class="to_register"><font size=4>Log in </font></a>
-								</p><br><br>
-
-
-
-
 
 
 			</form>
 
-			</div>
-	</div>
-	</section>
-	</div>
-	<nav class="navbar navbar-inverse navbar-fixed-bottom" id="footer">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Footer</a>
-			</div>
-		</div>
-	</nav>
+
 
 </body>
+<?php
+display_footer();;
+?>
 </html>
