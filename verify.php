@@ -5,7 +5,7 @@ require("PasswordHash.php");
 $hasher = new PasswordHash(8, false);
 
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
-	header('Location: index.html');
+	header('Location: index.php');
 }
 $username = $_POST['username'];
 $password = $_POST['password'];
