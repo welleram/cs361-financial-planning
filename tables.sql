@@ -58,7 +58,10 @@ VALUES([incomeType], [dateDay], [dateMonth], [dateYear],[recurrence],[amount] (
 	WHERE accountName = [accountName] AND accountType = [accountType] AND accountBalance  = [accountBalance]))
 
 
-SELECT dateMonth, Sum(amount) FROM Incomes WHERE username = 'ivan2015' GROUP BY dateMonth
+SELECT dateMonth, Sum(amount) FROM Incomes WHERE username = 'ivan2015' GROUP BY dateMonth, dateYear
 
+
+//refferences:
+https://github.com/maxdlothar/legacy/blob/3fa1cdd9cd62432bf7da4231b6452e46cbf1313a/intranet.inform/web/techservices/chart_demo2.php
 
 
