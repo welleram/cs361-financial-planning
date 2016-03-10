@@ -4,7 +4,7 @@
 	session_start();
 
 	if(!isset($_SESSION['username'])){
-		header('Location: index.html');
+		header('Location: index.php');
 	}
 	if ($_SERVER['REQUEST_METHOD'] != "POST") {
 		header('Location: view_edit_account.php');

@@ -3,13 +3,13 @@ ini_set('display_errors',1);
 error_reporting(E_ALL ^ E_DEPRECATED);
 
 if ($_SERVER['REQUEST_METHOD'] != "POST") {
-	header('Location: index.html');
+	header('Location: index.php');
 }
 
 session_start();
 
 if(!isset($_SESSION['username'])){
-	header('Location: index.html');
+	header('Location: index.php');
 }
 $username = $_SESSION['username'];
 ?>
