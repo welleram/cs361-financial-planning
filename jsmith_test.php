@@ -16,10 +16,18 @@ and open the template in the editor.
         
         echo "test page";
         
+        
+        
+        drop_table_accounts($con);
+        drop_table_expenses($con);
+        drop_table_incomes($con);
+        drop_table_users($con);
         create_table_users($con);
         create_table_accounts($con);
         create_table_incomes($con);
         create_table_expenses($con);
+        
+       
         
         $userName = "joe";
         $password = "pass";

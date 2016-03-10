@@ -9,7 +9,7 @@
  * 
  */
 
-$con = mysqli_connect("127.0.0.1", "root", "", "financialplanning");
+$con = mysqli_connect("127.0.0.1", "root", "dgavm", "financialplanning");
 
 function create_table_users($con)
 {
@@ -132,7 +132,7 @@ function create_table_incomes( $con)
 {
 
 
-    $sql="CREATE TABLE Incomes(P_Id int NOT NULL AUTO_INCREMENT , userP_Id INT, dateDay INT, dateMonth INT, dateYear INT, recurrence CHAR(30), amount INT, PRIMARY KEY (P_Id))";
+    $sql="CREATE TABLE Incomes(P_Id int NOT NULL AUTO_INCREMENT , userP_Id INT, userName CHAR(30), dateDay INT, dateMonth INT, dateYear INT, recurrence CHAR(30), amount INT, PRIMARY KEY (P_Id))";
 
     if (mysqli_query($con,$sql))
     {
@@ -161,12 +161,20 @@ function drop_table_incomes($con)
     
 }
 
-function add_income($userP_Id, $dateDay, $dateMonth, $dateYear, $recurrence, $amount, $con)
+function add_income($userP_Id, $userName, $dateDay, $dateMonth, $dateYear, $recurrence, $amount, $con)
 {
     
-    $sql = "INSERT INTO Incomes(userP_Id, dateDay, dateMonth, dateYear, recurrence, amount) VALUES ('$userP_Id', $dateDay', '$dateMonth', '$dateYear', '$recurrence', '$amount')";
+    $sql = "INSERT INTO Incomes(userP_Id, userName, dateDay, dateMonth, dateYear, recurrence, amount) VALUES ('$userP_Id', '$userName', '$dateDay', '$dateMonth', '$dateYear', '$recurrence', '$amount')";
     
-    mysqli_query($con,$sql);
+
+    if (mysqli_query($con,$sql))
+    {
+        echo "added income successfully. <br. ";
+    }
+    else
+    {
+        echo "Error adding income: " . mysqli_error($con) . "<br>";
+    }
     
     
 }
@@ -185,7 +193,7 @@ function create_table_expenses($con)
 {
 
 
-    $sql="CREATE TABLE Expenses(P_Id int NOT NULL AUTO_INCREMENT , dateDay INT, dateMonth INT, dateYear INT, recurrence CHAR(30), amount INT, PRIMARY KEY (P_Id))";
+    $sql="CREATE TABLE Expenses(P_Id int NOT NULL AUTO_INCREMENT , userP_Id INT, userName CHAR(30), dateDay INT, dateMonth INT, dateYear INT, recurrence CHAR(30), amount INT, PRIMARY KEY (P_Id))";
 
     if (mysqli_query($con,$sql))
     {
@@ -214,12 +222,22 @@ function drop_table_expenses($con)
     
 }
 
-function add_expense($userP_Id, $dateDay, $dateMonth, $dateYear, $recurrence, $amount, $con)
+
+function add_expense($userP_Id, $userName, $dateDay, $dateMonth, $dateYear, $recurrence, $amount, $con)
 {
     
-    $sql = "INSERT INTO Expenses(userP_Id, dateDay, dateMonth, dateYear, recurrence, amount) VALUES ('$userP_Id', $dateDay', '$dateMonth', '$dateYear', '$recurrence', '$amount')";
+    $sql = "INSERT INTO Expenses(userP_Id, userName,  dateDay, dateMonth, dateYear, recurrence, amount) VALUES ('$userP_Id', '$userName', '$dateDay', '$dateMonth', '$dateYear', '$recurrence', '$amount')";
     
-    mysqli_query($con,$sql);
+    
+    
+    if (mysqli_query($con,$sql))
+    {
+        echo "Added expense successfully. <br. ";
+    }
+    else
+    {
+        echo "Error adding expense: " . mysqli_error($con) . "<br>";
+    }
     
     
 }
@@ -230,6 +248,64 @@ function delete_expense($P_Id, $con)
     $sql = "DELETE FROM Expenses WHERE P_Id='$P_Id';";
     
     mysqli_query($con,$sql);
+    
+    
+}
+
+
+function setDailySpendingLimit($limit, $con)
+{
+    
+    $sql = "UPDATE Users SET dailySpendingLimit='$limit' WHERE userName='$_SESSION[userName]'";
+    
+    echo "limit was $limit <br>";
+    
+    if (mysqli_query($con,$sql))
+    {
+        echo "Added limit successfully. <br. ";
+    }
+    else
+    {
+        echo "Error adding limit: " . mysqli_error($con) . "<br>";
+    }
+    
+    
+}
+
+function setWeeklySpendingLimit($limit, $con)
+{
+    
+    $sql = "UPDATE Users SET weeklySpendingLimit='$limit' WHERE userName='$_SESSION[userName]'";
+    
+    
+    
+    if (mysqli_query($con,$sql))
+    {
+        echo "Added limit successfully. <br. ";
+    }
+    else
+    {
+        echo "Error adding limit: " . mysqli_error($con) . "<br>";
+    }
+    
+    
+}
+
+function setMonthlySpendingLimit($limit, $con)
+{
+    
+    $sql = "UPDATE Users SET monthlySpendingLimit='$limit' WHERE userName='$_SESSION[userName]'";
+    
+    
+    
+    if (mysqli_query($con,$sql))
+    {
+        echo "Added limit successfully. <br. ";
+    }
+    else
+    {
+        echo "Error adding limit: " . mysqli_error($con) . "<br>";
+    }
     
     
 }
