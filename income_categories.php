@@ -4,7 +4,7 @@ ini_set('display_errors',1);
 session_start();
 
 if(!isset($_SESSION['username'])){
-	header('Location: index.php');
+	header('Location: index.html');
 }
 $username = $_SESSION['username'];
 ?>
@@ -66,9 +66,12 @@ display_header();
 		mysqli_select_db($db_con, DB_DATABASE);
 	}
 	// Variables for SQL query
-	$startdate="20160201";
+
 	// SQL query
-	$sql= "SELECT dateMonth, Sum(amount) AS PointSum FROM Incomes WHERE username = '$username' and dateYear= '2016' GROUP BY dateMonth";
+	
+
+	
+	$sql= "SELECT incomeType, Sum(amount) AS PointSum FROM Incomes WHERE username = '$username' and dateYear= '2016' GROUP BY incomeType";
 	
 	if(!$result=$db_con->query($sql)) {
 		die("Error running query [".$db_con->error."]");
@@ -89,14 +92,14 @@ echo <<<STARTDOC
 STARTDOC;
 // Parse the data
 while($row = $result->fetch_assoc()) {
-	echo "['".$row['dateMonth']."',".$row['PointSum']."],";
+	echo "['".$row['incomeType']."',".$row['PointSum']."],";
 }
 $result->free();
 echo <<<ENDDOC
         ]);
 
         var options1 = {
-          title: 'Income per Month for 2016',
+          title: 'How income was earned in 2016 [ by category]',
           is3D: true,
         };
         var chart1 = new google.visualization.PieChart(document.getElementById('chart_div1'));
